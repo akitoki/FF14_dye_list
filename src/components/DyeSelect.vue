@@ -172,7 +172,7 @@ export default {
         {id: 12, name: 'コボルド族のよろず屋', place: '外地ラノシア X:21.6 Y:17.8'},
         {id: 13, name: 'おみせやさん（青船貨）', place: '名もなき島 X:12.6 Y:28.3'},
         {id: 14, name: 'エニー（蒼天街振興券）', place: '蒼天街 X:12.0 Y:14.0'},
-        {id: 15, name: 'クラフター製作', place: ''},
+        {id: 15, name: 'NPC販売なし（製作のみ）', place: ''},
         {id: 16, name: 'ハウジング雇用NPC', place: ''},
       ],
       shopId: []
