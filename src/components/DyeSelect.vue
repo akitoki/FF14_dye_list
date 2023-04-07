@@ -195,6 +195,10 @@ export default {
         }
       })
       this.$store.commit('shopIds', shopArr);
+      this.$nextTick(() => {
+        const shopList = document.getElementById('shop-list')
+        shopList.scrollIntoView({behavior : 'smooth'})
+      })
     }
   }
 }

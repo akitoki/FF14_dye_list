@@ -1,6 +1,6 @@
 <template lang="pug">
 .wrapper
-  header
+  header#header
     h1.h1-title カララントどこで売ってますか？
   .main-contents
     DyeSelect
