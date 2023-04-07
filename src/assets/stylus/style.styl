@@ -1,5 +1,9 @@
 @import 'reset.styl'
 
+mediaPad()
+  @media only screen and (max-width 1020px)
+    {block}
+
 mediaSp()
   @media only screen and (max-width 767px)
     {block}
@@ -30,10 +34,14 @@ mediaSp()
     +mediaSp()
       font-size 20px
   .main-contents
-    width 1020px
+    width 100%
+    padding 0 20px
+    max-width 1060px
     margin 0 auto
     min-height calc(100vh - 130px)
     padding-bottom 80px
+    +mediaPad()
+      width calc(100% - 40px)
     +mediaSp()
       width calc(100vw - 30px)
       min-height calc(100dvh - 174px)
@@ -143,10 +151,12 @@ mediaSp()
       flex-wrap wrap
     label
       display inline-block
-      width 340px
+      width calc(100% / 3)
       line-height 1
       padding 10px 20px
       cursor pointer
+      +mediaPad()
+        width 50%
       +mediaSp()
         display flex
         aling-items flex-start
