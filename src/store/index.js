@@ -2,13 +2,18 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-  },
-  getters: {
+    selectDyes: '',
+    shopIds: [],
   },
   mutations: {
+    selectDyes(state, value) {
+      state.selectDyes = value
+    },
+    shop(state, value) {
+      state.shops = value
+    },
+    shopIds(state, value) {
+      state.shopIds = value
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
 })
