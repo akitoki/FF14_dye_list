@@ -4,6 +4,7 @@
   .color-category-wrap
     label(v-for="selectCategory in selectCategoryArr")
       input(type="radio" v-model="selectCategoryColor" :value="selectCategory" name="colorCat")
+      .cursor
       span(:class="selectCategory")
   h2.title カララント選択
   .wrap(v-if="selectCategoryColor === 'white'")
