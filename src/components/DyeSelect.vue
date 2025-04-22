@@ -42,6 +42,12 @@
       input(type="radio" v-model="selectDyes" :value="selectDye" name="color")
       span(:style="selectDye")
       | {{selectDye.color}}
+  .wrap(v-if="selectCategoryColor === 'extra'")
+    label(v-for="selectDye in extraArr")
+      input(type="radio" v-model="selectDyes" :value="selectDye" name="color")
+      span(:style="selectDye")
+      | {{selectDye.color}}
+    p.notice ※上記以外のカララントは全てNPCからは入手不可
 </template>
 <script>
 export default {
@@ -50,7 +56,7 @@ export default {
     return {
       selectColor: 'white',
       selectCategoryColor: 'white',
-      selectCategoryArr: ['white', 'red', 'brown', 'yellow', 'green', 'blue', 'purple'],
+      selectCategoryArr: ['white', 'red', 'brown', 'yellow', 'green', 'blue', 'purple', 'extra'],
       selectDyes: [{color: 'スノウホワイト', id:[8], background: '#e4dfd0'}],
       whiteArr: [
         {color: 'スノウホワイト', id:[8], background: '#e4dfd0'},
@@ -70,8 +76,10 @@ export default {
         {color: 'コーラルピンク', id:[9], background: '#cc6c5e'},
         {color: 'ブラッドレッド', id:[1,2,3,4,5,6,16], background: '#913b27'},
         {color: 'サーモンピンク', id:[1,2,3,4,5,6,16], background: '#e4aa8a'},
-        {color: 'ルビーレッド', id:[13,14], background: '#e40011'},
-        {color: 'チェリーピンク', id:[13,14], background: '#f5379b'},
+        {color: 'ルビーレッド', id:[13,14,17], background: '#e40011'},
+        {color: 'チェリーピンク', id:[13,14,17], background: '#f5379b'},
+        {color: 'カーマインレッド', id:[17], background: '#de0b16'},
+        {color: 'ネオンピンク', id:[17], background: '#ed118e'},
       ],
       brownArr: [
         {color: 'サンセットオレンジ', id:[15], background: '#b75c2d'},
@@ -92,6 +100,7 @@ export default {
         {color: 'シェールブラウン', id:[10], background: '#92816c'},
         {color: 'モールブラウン', id:[1,2,3,4,5,6,16], background: '#615245'},
         {color: 'ロームブラウン', id:[15], background: '#3f3329'},
+        {color: 'ブライトオレンジ', id:[17], background: '#f45011'},
       ],
       yellowArr: [
         {color: 'ボーンホワイト', id:[1,2,3,4,5,6,16,7], background: '#ebd3a0'},
@@ -103,8 +112,9 @@ export default {
         {color: 'クリームイエロー', id:[1,2,3,4,5,6,16], background: '#f2d770'},
         {color: 'ハラタリイエロー', id:[1,2,3,4,5,6,16], background: '#a58430'},
         {color: 'レーズンブラウン', id:[11], background: '#403311'},
-        {color: 'カナリーイエロー', id:[13,14], background: '#fef864'},
-        {color: 'バニライエロー', id:[13,14], background: '#fbf1b4'},
+        {color: 'カナリーイエロー', id:[13,14,17], background: '#fef864'},
+        {color: 'バニライエロー', id:[13,14,17], background: '#fbf1b4'},
+        {color: 'ネオンイエロー', id:[17], background: '#dfea08'},
       ],
       greenArr: [
         {color: 'マッドグリーン', id:[1,2,3,4,5,6,16,7], background: '#585230'},
@@ -124,6 +134,7 @@ export default {
         {color: 'セレストグリーン', id:[15], background: '#96bdb9'},
         {color: 'ターコイズグリーン', id:[12], background: '#437272'},
         {color: 'モルボルグリーン', id:[8], background: '#1f4646'},
+        {color: 'ネオングリーン', id:[17], background: '#b5f710'},
       ],
       blueArr: [
         {color: 'アイスブルー', id:[1,2,3,4,5,6,16,7], background: '#b2c4ce'},
@@ -143,8 +154,9 @@ export default {
         {color: 'ミッドナイトブルー', id:[1,2,3,4,5,6,16], background: '#181937'},
         {color: 'シャドウブルー', id:[9], background: '#373747'},
         {color: 'アビサルブルー', id:[15], background: '#312d57'},
-        {color: 'ドラグーンブルー', id:[13,14], background: '#000ea2'},
-        {color: 'ターコイズブルー', id:[13,14], background: '#04afcd'},
+        {color: 'ドラグーンブルー', id:[13,14,17], background: '#000ea2'},
+        {color: 'ターコイズブルー', id:[13,14,17], background: '#04afcd'},
+        {color: 'アズールブルー', id:[17], background: '#3a4c90'},
       ],
       purpleArr: [
         {color: 'ラベンダーブルー', id:[9], background: '#877fae'},
@@ -156,6 +168,12 @@ export default {
         {color: 'コリブリピンク', id:[15], background: '#dc9bca'},
         {color: 'プラムパープル', id:[15], background: '#79526c'},
         {color: 'リーガルパープル', id:[15], background: '#66304e'},
+        {color: 'バイオレットパープル', id:[17], background: '#62508f'},
+      ],
+      extraArr: [
+        {color: 'ガンメタル', id:[13,14,17], background: '#606068'},
+        {color: 'パールホワイト', id:[13,14,17], background: '#e9e3da'},
+        {color: 'シャインブラス', id:[13,14,17], background: '#e7d197'},
       ],
       shops: [
         {id: 1, name: '雑貨屋 ウンシンレール', place: 'リムサ・ロミンサ：下甲板層 X:6.0 Y:12.3'},
@@ -174,6 +192,7 @@ export default {
         {id: 14, name: 'エニー（蒼天街振興券）', place: '蒼天街 X:12.0 Y:14.0'},
         {id: 15, name: 'NPC販売なし（製作のみ）', place: ''},
         {id: 16, name: 'ハウジング雇用NPC', place: ''},
+        {id: 17, name: 'メズエードンク（コスモクレジット）', place: '焦がれの入江 X:21.8 Y:21.8'}
       ],
       shopId: []
     }
