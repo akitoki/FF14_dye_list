@@ -64,7 +64,7 @@ mediaSp()
       margin 0 20px
       cursor pointer
       +mediaSp()
-        margin 0 20px 0 0
+        margin 0 4vw 0 0
         &:last-child
           margin-right 0
       input
@@ -117,6 +117,9 @@ mediaSp()
         &.purple
           &::before
             background #a662e4
+        &.extra
+          &::before
+            background linear-gradient(-45deg, red, red, red, orange, yellow, green, aqua, blue, purple, purple, purple)
         &::after
           content ""
           width 60px
@@ -147,6 +150,14 @@ mediaSp()
             left -3px
             top -3px
   .wrap
+    .notice
+      font-size 14px
+      margin 30px 0 40px
+      text-align center
+      +mediaSp()
+        font-size 12px
+        margin 15px 0 25px
+        width 100%
     +mediaSp()
       display flex
       flex-wrap wrap
@@ -207,12 +218,11 @@ mediaSp()
 
 .shop-list-wrap
   .notice
-    text-align right
+    text-align center
     margin-top 30px
     font-size 14px
     +mediaSp()
       font-size 12px
-      text-align center
   ul
     padding 0
     list-style none
@@ -222,7 +232,6 @@ mediaSp()
       dl
         display flex
         border 1px solid #fff
-        align-items center
         position relative
         +mediaSp()
           display block
@@ -235,12 +244,12 @@ mediaSp()
           color #000
           +mediaSp()
             width 100%
-            padding 10px 15px
-            height 44px
+            padding 10px 85px 10px 15px
         dd
           flex 1
           display flex
           justify-content space-between
+          align-items center
           width 100%
           font-size 16px
           +mediaSp()
@@ -248,19 +257,21 @@ mediaSp()
           p
             padding 15px 20px
             +mediaSp()
-              padding 10px 15px
+              padding 10px 85px 10px 15px
               font-size 14px
           span
-            display block
+            display flex
+            align-items center
+            justify-content center
             padding 15px 20px
             background #fff
             color #000
             cursor pointer
+            height 100%
             &:hover
               cursor pointer
               opacity .7
             +mediaSp()
-              display inline-block
               position absolute
               right 0
               top 0
@@ -268,7 +279,7 @@ mediaSp()
               color #fff
               font-size 15px
               padding 10px 15px
-              height 43px
+              border-left 1px solid #fff
   .page-top-button
     display none
     text-align center
@@ -289,7 +300,7 @@ mediaSp()
   width 100%
   height 100vh
   height 100dvh
-  background rgba(#000, 0.7)
+  background rgba(#000, 0.85)
   z-index 100
   .map-modal-inner
     position absolute
